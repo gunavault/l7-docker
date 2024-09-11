@@ -43,12 +43,6 @@ jobs:
       - name: Set up PHP with Docker
         run: docker-compose up -d
 
-      - name: Fix permissions
-        run: docker-compose exec -T app chown -R www-data:www-data /var/www
-
-      - name: Create vendor directory
-        run: docker-compose exec -T app mkdir -p /var/www/vendor
-        
       - name: Install dependencies
         run: docker-compose exec -T app composer install --prefer-dist --no-interaction
 
